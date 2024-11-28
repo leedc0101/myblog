@@ -1,10 +1,14 @@
-import { CONFIG } from "site.config"
+import { CONFIG as _CONFIG } from "site.config"
 import React from "react"
 import { AiFillCodeSandboxCircle } from "react-icons/ai"
 import styled from "@emotion/styled"
 import { Emoji } from "src/components/Emoji"
 
 const ServiceCard: React.FC = () => {
+  const CONFIG = _CONFIG as unknown as {
+    projects: { name: string; href: string }[] | null
+  }
+
   if (!CONFIG.projects) return null
   return (
     <>
