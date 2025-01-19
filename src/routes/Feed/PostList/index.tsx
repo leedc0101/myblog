@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import PostCard from "src/routes/Feed/PostList/PostCard"
 import { DEFAULT_CATEGORY } from "src/constants"
 import usePostsQuery from "src/hooks/usePostsQuery"
+import styled from "@emotion/styled"
 
 type Props = {
   q: string
@@ -52,16 +53,32 @@ const PostList: React.FC<Props> = ({ q }) => {
 
   return (
     <>
-      <div className="my-2">
+      <div className="my-2 grid gap-2 md:grid-cols-2 lg:grid-cols-2 md:gap-[10px]">
         {!filteredPosts.length && (
           <p className="text-gray-500 dark:text-gray-300">Nothing! 😺</p>
         )}
-        {filteredPosts.map((post) => (
-          <PostCard key={post.id} data={post} />
-        ))}
+        <GridContainer>
+          {filteredPosts.map((post) => (
+            <PostCard key={post.id} data={post} />
+          ))}
+        </GridContainer>
       </div>
     </>
   )
 }
+
+const GridContainer = styled.div`
+  @media (min-width: 500px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+`
 
 export default PostList
