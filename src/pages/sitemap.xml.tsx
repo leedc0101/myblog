@@ -2,15 +2,22 @@ import { getPosts } from "../apis/notion-client/getPosts"
 import { CONFIG } from "site.config"
 import { getServerSideSitemap, ISitemapField } from "next-sitemap"
 import { GetServerSideProps } from "next"
+import {
+  filterPosts,
+  FilterPostsOptions,
+} from "src/libs/utils/notion/filterPosts"
+
+const filter: FilterPostsOptions = {
+  acceptStatus: ["Public", "PublicOnDetail"],
+  acceptType: ["Paper", "Post", "Page"],
+}
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const posts = await getPosts()
 
-  const postsWithValidSlug = posts.filter((post) => !!post.slug)
+  const filteredPost = filterPosts(posts)
 
-  const dynamicPaths = postsWithValidSlug.map(
-    (post) => `${CONFIG.link}/${post.slug}`
-  )
+  const dynamicPaths = filteredPost.map((post) => `${CONFIG.link}/${post.slug}`)
 
   // Create an array of fields, each with a loc and lastmod
   const fields: ISitemapField[] = dynamicPaths.map((path) => ({
