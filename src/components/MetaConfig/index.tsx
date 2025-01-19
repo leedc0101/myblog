@@ -17,6 +17,7 @@ const MetaConfig: React.FC<MetaConfigProps> = (props) => {
       <meta name="robots" content="follow, index" />
       <meta charSet="UTF-8" />
       <meta name="description" content={props.description} />
+      <meta name="google-adsense-account" content="ca-pub-3509559477638106" />
       {/* og */}
       <meta property="og:type" content={props.type} />
       <meta property="og:title" content={props.title} />

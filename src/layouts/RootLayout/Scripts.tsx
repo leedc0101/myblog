@@ -16,11 +16,6 @@ const Scripts: React.FC = () => (
               page_path: window.location.pathname,
             });`}
         </Script>
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509559477638106"
-          crossOrigin="anonymous"
-          async
-        />
       </>
     )}
   </>
