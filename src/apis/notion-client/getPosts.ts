@@ -42,6 +42,9 @@ export const getPosts = async () => {
       ).toString()
       properties.fullWidth =
         (block[id].value?.format as any)?.page_full_width ?? false
+      properties.updatedAt = new Date(
+        block[id].value.last_edited_time
+      ).toISOString()
 
       data.push(properties)
     }

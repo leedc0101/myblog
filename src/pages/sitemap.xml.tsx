@@ -17,12 +17,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const filteredPost = filterPosts(posts)
 
-  const dynamicPaths = filteredPost.map((post) => `${CONFIG.link}/${post.slug}`)
-
   // Create an array of fields, each with a loc and lastmod
-  const fields: ISitemapField[] = dynamicPaths.map((path) => ({
-    loc: path,
-    lastmod: new Date().toISOString(),
+  const fields: ISitemapField[] = filteredPost.map((post) => ({
+    loc: `${CONFIG.link}/${post.slug}`,
+    lastmod: post.updatedAt,
     priority: 0.7,
     changefreq: "daily",
   }))
