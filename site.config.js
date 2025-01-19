@@ -26,7 +26,7 @@ const CONFIG = {
 
   link: "https://dongchang.vercel.app",
   since: 2024,
-  lang: ["en-US", "ko-KR"],
+  lang: "ko-KR",
   ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
 
   notionConfig: {
