@@ -19,8 +19,8 @@ const CONFIG = {
   // ],
   // blog setting (required)
   blog: {
-    title: "이동창",
-    description: "개발일지",
+    title: "이동창의 개발일지",
+    description: "개발, 번역, 일상 등 개인적인 것들을 기록하는 블로그입니다.",
     scheme: "dark",
   },
 

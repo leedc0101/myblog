@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
+import Script from "next/script"
 import { CONFIG } from "site.config"
 
 class MyDocument extends Document {
@@ -36,6 +37,19 @@ class MyDocument extends Document {
               />
             </>
           )}
+          <Script
+            id="json-ld-website"
+            type="application/ld+json"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: CONFIG.blog.title,
+                url: CONFIG.link,
+              }),
+            }}
+          />
         </Head>
         <body>
           <Main />
