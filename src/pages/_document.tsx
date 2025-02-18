@@ -50,6 +50,11 @@ class MyDocument extends Document {
               }),
             }}
           />
+          <Script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509559477638106"
+            crossOrigin="anonymous"
+          />
         </Head>
         <body>
           <Main />
