@@ -24,7 +24,7 @@ const CONFIG = {
     scheme: "dark",
   },
 
-  link: "https://dongchang.vercel.app",
+  link: "https://dongchang.dev",
   since: 2024,
   lang: "ko-KR",
   ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
